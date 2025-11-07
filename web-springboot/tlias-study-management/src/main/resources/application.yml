@@ -1,0 +1,16 @@
+
+
+spring:
+  application:
+    name: tlias-study-management
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql01
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 886152
+
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: -classpath:mapper/*.xml
