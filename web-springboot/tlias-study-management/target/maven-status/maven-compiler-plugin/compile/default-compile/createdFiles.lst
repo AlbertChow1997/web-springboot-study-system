@@ -1,1 +1,7 @@
 com\albert\TliasStudyManagementApplication.class
+com\albert\service\DeptService.class
+com\albert\controller\DeptController.class
+com\albert\pojo\Result.class
+com\albert\pojo\Dept.class
+com\albert\mapper\DeptMapper.class
+com\albert\service\impl\DeptServiceImpl.class
