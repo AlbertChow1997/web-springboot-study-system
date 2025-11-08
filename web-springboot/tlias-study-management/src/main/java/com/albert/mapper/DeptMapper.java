@@ -17,4 +17,10 @@ public interface DeptMapper {
 //    @Select("select id, dept_name, create_time, update_time from department order by update_time desc")
 
     List<Dept> findAll();
+    void deleteById(Integer id);
+    void add(Dept dept);
+
+    Dept getInfo(Integer deptId);
+
+    void update(Dept dept);
 }

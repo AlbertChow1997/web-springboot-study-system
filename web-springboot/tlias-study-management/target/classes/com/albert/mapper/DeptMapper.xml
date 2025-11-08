@@ -14,6 +14,22 @@
 
     <!--  id: 标签的id值   resultType：sql语句查询结果的返回值类型 -->
     <select id="findAll" resultType="com.albert.pojo.Dept">
-        select id, dept_name, create_time, update_time from department order by update_time desc
+        select id, dept_name as name, create_time, update_time from department order by update_time desc
     </select>
+
+    <delete id="deleteById">
+        delete from department where id = #{id}
+    </delete>
+    <insert id="add">
+        insert into department (dept_name, create_time, update_time)
+        values (#{name}, now(), now())
+    </insert>
+
+    <select id="getInfo" resultType="com.albert.pojo.Dept">
+        select id, dept_name as name, create_time, update_time from department where id = #{deptId}
+    </select>
+
+    <update id="update">
+        update department set dept_name = #{name}, update_time = now() where id = #{id}
+    </update>
 </mapper>
