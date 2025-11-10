@@ -4,21 +4,25 @@ import com.albert.pojo.Dept;
 import com.albert.pojo.Result;
 import com.albert.service.DeptService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Scanner;
 
+@Slf4j
 @RequestMapping("/depts")
 @RestController
 public class DeptController {
+
 
     @Autowired
     private DeptService deptService;
 
     @GetMapping
     public Result list() {
-        System.out.println("Query all the departments");
+        log.info("List all departments");
         List<Dept> deptList = deptService.findAll();
         return Result.success(deptList);
     }
@@ -36,7 +40,7 @@ public class DeptController {
 
     @DeleteMapping
     public Result delete(@RequestParam("id") Integer deptId) {
-        System.out.println("Delete department by id: " + deptId);
+        log.info("Delete department by id: {}",deptId);
         deptService.deleteById(deptId);
         return Result.success();
     }
@@ -51,21 +55,23 @@ public class DeptController {
     * */
     @PostMapping
     public Result add(@RequestBody Dept dept) {
-        System.out.println("Add department: " + dept);
+        log.info("Add department: {}", dept);
         deptService.add(dept);
         return Result.success();
     }
 
     @GetMapping("/{id}")
     public Result get(@PathVariable("id") Integer deptId) {
-        System.out.println("Query department by id: " + deptId);
+        log.info("Query department by id: {}", deptId);
         Dept dept = deptService.getInfo(deptId);
         return Result.success(dept);
     }
 
+
+
     @PutMapping
     public Result update(@RequestBody Dept dept) {
-        System.out.println("Update department: " + dept);
+        log.info("Update department: {}", dept);
         deptService.update(dept);
         return Result.success();
     }
