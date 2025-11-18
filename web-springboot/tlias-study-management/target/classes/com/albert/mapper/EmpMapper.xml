@@ -19,10 +19,10 @@
     </select>
 
     <select id="list" resultType="com.albert.pojo.Emp">
-        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc limit #{page}, #{pageSize}
+        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc
     </select>
 
     <select id="page" resultType="com.albert.pojo.PageResult">
-        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc limit #{page}, #{pageSize}
+        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc
     </select>
 </mapper>

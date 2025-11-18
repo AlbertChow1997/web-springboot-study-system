@@ -14,7 +14,7 @@ public interface EmpMapper {
      */
     public Long count();
 
-    public List<Emp> list(Integer page, Integer pageSize);
+    public List<Emp> list();
 
-    PageResult page(Integer page, Integer pageSize);
+    //PageResult page(Integer page, Integer pageSize);
 }
