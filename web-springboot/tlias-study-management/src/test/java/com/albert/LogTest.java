@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
 import java.time.LocalDateTime;
 
 public class LogTest {
@@ -19,7 +20,7 @@ public class LogTest {
         for (int num : nums) {
             sum += num;
         }
-
+        
 
         log.info("The sum is: " + sum);
         log.debug("End Calculate...");
