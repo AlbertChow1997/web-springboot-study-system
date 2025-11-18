@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 命名空间 -->
+<mapper namespace="com.albert.mapper.EmpExprMapper">
+
+    <!--  在mapper标签中，去写对应的SQL语句-->
+    <!--    select  查询语句 -->
+    <!--    update  修改语句 -->
+    <!--    insert  增加语句 -->
+    <!--    delete  删除语句 -->
+
+    <!--  id: 标签的id值   resultType：sql语句查询结果的返回值类型 -->
+    <select id="queryAccountById" resultType="com.albert.pojo.EmpExpr">
+    </select>
+</mapper>
