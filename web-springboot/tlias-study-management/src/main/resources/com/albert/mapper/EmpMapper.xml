@@ -19,10 +19,34 @@
     </select>
 
     <select id="list" resultType="com.albert.pojo.Emp">
-        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc
+        <!-- Dynamic SQL: 动态SQL -->
+        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id
+        <where>
+            <if test="name != null">
+                e.name like concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                and e.gender = #{gender}
+            </if>
+            <if test="begin != null and end != null">
+                and e.entry_date between #{begin} and #{end}
+            </if>
+        </where>order by e.update_time desc
     </select>
 
-    <select id="page" resultType="com.albert.pojo.PageResult">
-        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc
-    </select>
+<!--    <select id="page" resultType="com.albert.pojo.PageResult">-->
+<!--        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc-->
+<!--    </select>-->
+
+<!--    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.albert.pojo.Emp">-->
+<!--        insert into emp (username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time)-->
+<!--        values (#{username}, #{name}, #{gender}, #{phone}, #{job}, #{salary}, #{image}, #{entryDate}, #{deptId}, #{createTime}, #{updateTime})-->
+<!--    </insert>-->
+
+<!--    <insert id="saveExpr" parameterType="com.albert.pojo.EmpExpr">-->
+<!--        insert into emp_expr (emp_id, begin, end, company, job)-->
+<!--        values (#{id}, #{begin}, #{end}, #{company}, #{job})-->
+<!--    </insert>-->
+
+
 </mapper>

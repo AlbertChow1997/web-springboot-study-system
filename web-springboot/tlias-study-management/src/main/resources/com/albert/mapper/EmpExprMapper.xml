@@ -15,4 +15,12 @@
     <!--  id: 标签的id值   resultType：sql语句查询结果的返回值类型 -->
     <select id="queryAccountById" resultType="com.albert.pojo.EmpExpr">
     </select>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into emp_expr (emp_id, begin, end, company, job)
+        values
+        <foreach collection="list" item="expr" separator=",">
+            (#{expr.empId}, #{expr.begin}, #{expr.end}, #{expr.company}, #{expr.job})
+        </foreach>
+    </insert>
 </mapper>
