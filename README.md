@@ -1,5 +1,5 @@
 # A-Full-Stack-Study-Assistant-System-based-on-SpringBoot-and-Vue
-Tech Stack: Java17, SpringBoot3.x, maven, Session, AliCloud OSS, Filter, JWT, AOP, Docker
+Tech Stack: Java17, SpringBoot3.x, maven, Session, AliCloud OSS(Aliyun), Filter, JWT, AOP, Docker
 
 This is a personal project.
 The main function is management the departments, employees and students in the educational institutes.
@@ -22,3 +22,19 @@ The main function is management the departments, employees and students in the e
 ## deployment
 + Docker
 + Linux
+
+# Project Content
+
+## Class management
+
+## Student management
+
+## Department management
+
+## Employee management
+
+## Students info statistics
+
+## Employees info statistics
+
+## Log info statistics
