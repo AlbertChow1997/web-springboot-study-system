@@ -8,11 +8,11 @@ import com.albert.pojo.Result;
 import com.albert.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Employee Controller
@@ -51,4 +51,17 @@ public class EmpController {
 //        PageResult<Emp> pageResult = empService.page(page, pageSize, name, gender, begin, end);
 //        return Result.success(pageResult);
 //    }
+
+//    @DeleteMapping
+//    public Result delete(Integer[] ids){
+//        log.info("Delete employees: {}", Arrays.toString(ids));
+//        return Result.success();
+//    }
+
+    @DeleteMapping
+    public Result delete(@RequestParam List<Integer> ids){
+        log.info("Delete employees: {}", ids);
+        empService.delete(ids);
+        return Result.success();
+    }
 }

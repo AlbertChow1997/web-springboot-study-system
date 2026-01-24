@@ -5,6 +5,12 @@
 
 <!-- namespace: 命名空间 -->
 <mapper namespace="com.albert.mapper.EmpMapper">
+    <delete id="deleteByIds">
+        delete from emp where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 
     <!--  在mapper标签中，去写对应的SQL语句-->
     <!--    select  查询语句 -->
