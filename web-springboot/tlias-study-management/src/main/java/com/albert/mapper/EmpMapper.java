@@ -29,6 +29,8 @@ public interface EmpMapper {
 
     void deleteByIds(List<Integer> ids);
 
+    Emp getById(Integer id);
+
 
     //PageResult page(Integer page, Integer pageSize);
 }

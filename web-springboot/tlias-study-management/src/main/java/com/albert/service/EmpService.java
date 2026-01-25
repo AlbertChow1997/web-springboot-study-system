@@ -3,9 +3,7 @@ package com.albert.service;
 import com.albert.pojo.Emp;
 import com.albert.pojo.EmpQueryParam;
 import com.albert.pojo.PageResult;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface EmpService {
@@ -20,4 +18,6 @@ public interface EmpService {
 
 
     void delete(List<Integer> ids);
+
+    Emp getInfo(Integer id);
 }

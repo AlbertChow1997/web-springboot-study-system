@@ -12,10 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -98,5 +95,11 @@ public class EmpServiceImpl implements EmpService {
         empMapper.deleteByIds(ids);
         //2.delete the emp_expr of related employees
         empExprMapper.deleteByEmpIds(ids);
+    }
+
+    @Override
+    public Emp getInfo(Integer id) {
+
+        return empMapper.getById(id);
     }
 }

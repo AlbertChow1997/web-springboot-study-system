@@ -64,4 +64,12 @@ public class EmpController {
         empService.delete(ids);
         return Result.success();
     }
+
+    //Get employee information based on id
+    @GetMapping("/{id}")
+    public Result getInfo(@PathVariable Integer id){
+        log.info("Get employee information by id: {}", id);
+        Emp emp = empService.getInfo(id);
+        return Result.success(emp);
+    }
 }
