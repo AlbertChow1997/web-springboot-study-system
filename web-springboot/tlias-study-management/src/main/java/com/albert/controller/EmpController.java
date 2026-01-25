@@ -72,4 +72,12 @@ public class EmpController {
         Emp emp = empService.getInfo(id);
         return Result.success(emp);
     }
+
+    //Modify employee info by id
+    @PutMapping
+    public Result update(@RequestBody Emp emp){
+        log.info("Modify employee info: {}", emp);
+        empService.update(emp);
+        return Result.success();
+    }
 }

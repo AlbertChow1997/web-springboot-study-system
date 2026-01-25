@@ -31,6 +31,8 @@ public interface EmpMapper {
 
     Emp getById(Integer id);
 
+    void updateById(Emp emp);
+
 
     //PageResult page(Integer page, Integer pageSize);
 }
