@@ -32,7 +32,11 @@ public interface EmpMapper {
     void updateById(Emp emp);
 
     //statistics of employees' position
+    @MapKey("pos")
     List<Map<String, Object>> countEmpJobData();
+
+    @MapKey("name")
+    List<Map<String, Object>> countEmpGenderData();
 
 
     //PageResult page(Integer page, Integer pageSize);
