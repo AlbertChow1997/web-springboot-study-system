@@ -117,6 +117,17 @@
                  left join emp_expr ee on e.id = ee.emp_id
         where e.id = #{id};
     </select>
+    <select id="countEmpJobData" resultType="java.util.Map">
+        select
+            (case when job = 1 then "班主任"
+                when job = 2 then "讲师"
+                when job = 3 then "学工主管"
+                when job = 4 then "教研主管"
+                when job = 5 then "咨询师"
+                else "其他" end) pos,
+            count(*) num
+        from emp group by job order by num asc;
+    </select>
 
     <!--    <select id="page" resultType="com.albert.pojo.PageResult">-->
 <!--        select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc-->

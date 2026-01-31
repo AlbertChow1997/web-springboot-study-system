@@ -4,13 +4,11 @@ import com.albert.pojo.Emp;
 import com.albert.pojo.EmpExpr;
 import com.albert.pojo.EmpQueryParam;
 import com.albert.pojo.PageResult;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface EmpMapper {
@@ -32,6 +30,9 @@ public interface EmpMapper {
     Emp getById(Integer id);
 
     void updateById(Emp emp);
+
+    //statistics of employees' position
+    List<Map<String, Object>> countEmpJobData();
 
 
     //PageResult page(Integer page, Integer pageSize);
