@@ -10,4 +10,6 @@ import java.util.List;
 public interface StudentService {
 
     PageResult<Student> list(StudentQueryParam params);
+
+    void add(Student student);
 }

@@ -9,9 +9,7 @@ import com.albert.service.StudentService;
 import com.github.pagehelper.page.PageParams;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +25,13 @@ public class StudentController {
     public Result page(StudentQueryParam params) {
         PageResult<Student> pageResult = studentService.list(params);
         return Result.success(pageResult);
+    }
+
+    @PostMapping
+    public Result add(@RequestBody Student student) {
+        log.info("Add student: {}", student);
+        studentService.add(student);
+        return Result.success();
     }
 
 }
