@@ -21,4 +21,6 @@ public interface ClazzMapper {
     void update(Clazz clazz);
 
     Clazz getById(Long id);
+
+    void deleteById(Long id);
 }

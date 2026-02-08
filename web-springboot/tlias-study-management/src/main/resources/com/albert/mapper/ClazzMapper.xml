@@ -32,6 +32,9 @@
         </set>
         where id = #{id}
     </update>
+    <delete id="deleteById">
+        delete from clazz where id = #{id}
+    </delete>
     <!--    <insert id="add">-->
 <!--        insert into clazz (id, name, room, master_id, subject,begin_date, end_date, create_time, update_time)-->
 <!--        values (#{id}, #{name}, #{room}, #{masterId}, #{subject}, #{beginDate}, #{endDate}, now(), now())-->

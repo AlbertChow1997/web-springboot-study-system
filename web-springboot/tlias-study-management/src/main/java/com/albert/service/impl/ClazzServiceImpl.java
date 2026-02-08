@@ -54,4 +54,9 @@ public class ClazzServiceImpl implements ClazzService {
     public Clazz getClazzById(Long id) {
         return clazzMapper.getById(id);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        clazzMapper.deleteById(id);
+    }
 }

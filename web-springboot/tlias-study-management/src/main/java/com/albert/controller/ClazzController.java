@@ -55,4 +55,11 @@ public class ClazzController {
         Clazz clazz = clazzService.getClazzById(id);
         return Result.success(clazz);
     }
+
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Long id){
+        log.info("Delete clazz: {}", id);
+        clazzService.deleteById(id);
+        return Result.success();
+    }
 }
