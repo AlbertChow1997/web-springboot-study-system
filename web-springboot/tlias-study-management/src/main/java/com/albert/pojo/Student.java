@@ -71,4 +71,6 @@ public class Student {
      * 违纪扣分
      */
     private Long violationScore;
+
+    private String clazzName;
 }
