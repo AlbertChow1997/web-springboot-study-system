@@ -5,6 +5,37 @@
 
 <!-- namespace: 命名空间 -->
 <mapper namespace="com.albert.mapper.ClazzMapper">
+    <update id="update">
+        update clazz
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="room != null and room != ''">
+                room = #{room},
+            </if>
+            <if test="beginDate != null">
+                begin_date = #{beginDate},
+            </if>
+            <if test="endDate != null">
+                end_date = #{endDate},
+            </if>
+            <if test="masterId != null">
+                master_id = #{masterId},
+            </if>
+            <if test="subject != null">
+                subject = #{subject},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--    <insert id="add">-->
+<!--        insert into clazz (id, name, room, master_id, subject,begin_date, end_date, create_time, update_time)-->
+<!--        values (#{id}, #{name}, #{room}, #{masterId}, #{subject}, #{beginDate}, #{endDate}, now(), now())-->
+<!--    </insert>-->
 
     <!--  在mapper标签中，去写对应的SQL语句-->
     <!--    select  查询语句 -->
@@ -14,7 +45,10 @@
 
 
     <select id="list" resultType="com.albert.pojo.Clazz">
-        select c.* from clazz c
+        select c.*,
+        e.name masterName,
+        (case when begin_date &gt; now() then '未开班' when now() &gt; end_date then '已结课' else  '在读中' end ) status
+        from clazz c left join emp e on c.master_id = e.id
         <where>
             <if test="name != null">
                 c.name like concat('%', #{name}, '%')

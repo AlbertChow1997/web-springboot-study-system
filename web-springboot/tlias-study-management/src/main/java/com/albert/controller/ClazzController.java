@@ -8,12 +8,10 @@ import com.albert.pojo.Result;
 import com.albert.service.ClazzService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -29,5 +27,25 @@ public class ClazzController {
         PageResult<Clazz> clazzList = clazzService.page(param);
 
         return Result.success(clazzList);
+    }
+
+    @PostMapping
+    public Result add(@RequestBody Clazz clazz){
+        log.info("Add clazz: {}", clazz);
+        clazzService.add(clazz);
+        return Result.success();
+    }
+
+    @GetMapping("/list")
+    public Result findAll(){
+        List<Clazz> clazzList = clazzService.findAll();
+        return Result.success(clazzList);
+    }
+
+    @PutMapping
+    public Result update(@RequestBody Clazz clazz){
+        log.info("Modify clazz: {}", clazz);
+        clazzService.update(clazz);
+        return Result.success();
     }
 }

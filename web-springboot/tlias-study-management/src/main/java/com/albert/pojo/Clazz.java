@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Data
@@ -19,7 +20,7 @@ public class Clazz {
     /**
      * 创建时间，创建时间
      */
-    private OffsetDateTime createTime;
+    private LocalDateTime createTime;
     /**
      * 结课时间，结课时间
      */
@@ -47,5 +48,8 @@ public class Clazz {
     /**
      * 修改时间，修改时间
      */
-    private OffsetDateTime updateTime;
+    private LocalDateTime updateTime;
+
+    private String masterName; //班主任姓名
+    private String status; //班级状态 - 未开班 , 在读 , 已结课
 }
