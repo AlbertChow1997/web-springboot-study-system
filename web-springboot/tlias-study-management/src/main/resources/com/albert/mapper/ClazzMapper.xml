@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: 命名空间 -->
+<mapper namespace="com.albert.mapper.ClazzMapper">
+
+    <!--  在mapper标签中，去写对应的SQL语句-->
+    <!--    select  查询语句 -->
+    <!--    update  修改语句 -->
+    <!--    insert  增加语句 -->
+    <!--    delete  删除语句 -->
+
+
+    <select id="list" resultType="com.albert.pojo.Clazz">
+        select c.* from clazz c
+        <where>
+            <if test="name != null">
+                c.name like concat('%', #{name}, '%')
+            </if>
+            <if test="begin != null and end != null">
+                and c.end_date between #{begin} and #{end}
+            </if>
+        </where>
+        order by c.update_time desc
+    </select>
+</mapper>
