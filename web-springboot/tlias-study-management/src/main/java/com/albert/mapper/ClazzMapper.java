@@ -19,4 +19,6 @@ public interface ClazzMapper {
     List<Clazz> findAll();
 
     void update(Clazz clazz);
+
+    Clazz getById(Long id);
 }

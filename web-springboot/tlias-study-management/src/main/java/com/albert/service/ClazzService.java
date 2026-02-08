@@ -15,4 +15,6 @@ public interface ClazzService {
     List<Clazz> findAll();
 
     void update(Clazz clazz);
+
+    Clazz getClazzById(Long id);
 }

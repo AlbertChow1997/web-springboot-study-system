@@ -48,4 +48,11 @@ public class ClazzController {
         clazzService.update(clazz);
         return Result.success();
     }
+
+    @GetMapping("/{id}")
+    public Result getClazzById(@PathVariable Long id){
+        log.info("Get clazz info: {}", id);
+        Clazz clazz = clazzService.getClazzById(id);
+        return Result.success(clazz);
+    }
 }
