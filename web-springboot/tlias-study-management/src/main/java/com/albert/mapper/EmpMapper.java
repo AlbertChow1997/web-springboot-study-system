@@ -38,6 +38,7 @@ public interface EmpMapper {
     @MapKey("name")
     List<Map<String, Object>> countEmpGenderData();
 
+    Integer countByDeptId(Integer id);
 
 
     //PageResult page(Integer page, Integer pageSize);

@@ -29,4 +29,10 @@ public class GlobalExceptionHandler {
 
     }
 
+    @ExceptionHandler
+    public Result handleBusinessException(BusinessException businessException) {
+        log.error("服务器异常", businessException);
+        return Result.error(businessException.getMessage());
+    }
+
 }

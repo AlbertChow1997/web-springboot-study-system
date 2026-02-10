@@ -134,6 +134,9 @@
             count(*) value
         from emp group by gender
     </select>
+    <select id="countByDeptId" resultType="java.lang.Integer">
+        select count(*) from emp where dept_id = #{id}
+    </select>
 
 
     <!--    <select id="page" resultType="com.albert.pojo.PageResult">-->
