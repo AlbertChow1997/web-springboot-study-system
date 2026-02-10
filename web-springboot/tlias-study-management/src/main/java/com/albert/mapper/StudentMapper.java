@@ -6,9 +6,12 @@ import com.albert.pojo.Student;
 import com.albert.pojo.StudentQueryParam;
 import com.github.pagehelper.page.PageParams;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
@@ -24,4 +27,12 @@ public interface StudentMapper {
     void update(Student student);
 
     Student getById(Integer id);
+    
+
+    @MapKey("degree")
+    List<Map<String, Object>> countStudentDegreeData();
+
+    @Select("select c.name cname , count(s.id) scount from clazz c  left join student s on s.clazz_id = c.id group by c.name order by count(s.id) desc ")
+    List<Map<String,Object>> getStudentCount();
+
 }

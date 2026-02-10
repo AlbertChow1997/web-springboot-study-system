@@ -1,6 +1,7 @@
 package com.albert.controller;
 
 
+import com.albert.pojo.ClazzOption;
 import com.albert.pojo.JobOption;
 import com.albert.pojo.Result;
 import com.albert.service.ReportService;
@@ -34,5 +35,19 @@ public class ReportController {
         log.info("Get employees' gender statistics");
         List<Map<String, Object>> genderList = reportService.getEmpGenderData();
         return Result.success(genderList);
+    }
+
+    @GetMapping("/studentCountData")
+    public Result studentCountData() {
+        log.info("Get students' count statistics");
+        ClazzOption clazzOption = reportService.getStudentCountData();
+        return Result.success(clazzOption);
+    }
+
+    @GetMapping("/studentDegreeData")
+    Result studentDegreeData() {
+        log.info("Get students' degree statistics");
+        List<Map<String, Object>> degreeList = reportService.getStudentDegreeData();
+        return Result.success(degreeList);
     }
 }
