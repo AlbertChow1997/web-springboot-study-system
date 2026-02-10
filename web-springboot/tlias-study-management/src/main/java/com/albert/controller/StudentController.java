@@ -55,4 +55,11 @@ public class StudentController {
         return Result.success(student);
     }
 
+    @PutMapping("/violation/{id}/{score}")
+    public Result addViolation(@PathVariable Integer id, @PathVariable Short score){
+        log.info("Add violation to student: {}, score: {}", id, score);
+        studentService.addViolation(id, score);
+        return Result.success();
+    }
+
 }

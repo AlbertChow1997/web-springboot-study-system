@@ -51,4 +51,12 @@ public class StudentServiceImpl implements StudentService {
     public Student getInfo(Integer id) {
         return studentMapper.getById(id);
     }
+
+    @Override
+    public void addViolation(Integer id, Short score) {
+        Student student = studentMapper.getById(id);
+        student.setViolationScore((short) (student.getViolationScore() + score));
+        student.setViolationCount((short) (student.getViolationCount() + 1));
+        studentMapper.update(student);
+    }
 }

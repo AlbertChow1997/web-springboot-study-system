@@ -38,6 +38,12 @@
             <if test="clazzId != null">
                 clazz_id = #{clazzId},
             </if>
+            <if test="violationCount != null">
+                violation_count = #{violationCount},
+            </if>
+            <if test="violationScore != null">
+                violation_score = #{violationScore},
+            </if>
         </set>
         where id = #{id}
     </update>
