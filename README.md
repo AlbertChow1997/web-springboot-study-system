@@ -17,7 +17,7 @@ Addtional function: statistic the data of employees and students. Use jwt to ide
 + Java 17
 + Filter
 + Session for Service end
-+ Cookie for Client
++ Cookie for Client, advantage is that http protocal gives a support to it, so it's easy to use with browsers.
 + JWT  Actually use this method for logging in 
 
 ## deployment
