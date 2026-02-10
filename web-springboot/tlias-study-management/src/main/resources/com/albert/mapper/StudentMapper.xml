@@ -5,7 +5,13 @@
 
 <!-- namespace: 命名空间 -->
 <mapper namespace="com.albert.mapper.StudentMapper">
-<!--    <insert id="add">-->
+    <delete id="deleteByIds">
+        delete from student where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <!--    <insert id="add">-->
 <!--        insert into student (name, no, gender, degree, clazz_id, id_card, is_college, address, phone, create_time, update_time, graduation_date, violation_count, violation_score)-->
 <!--        values (#{name}, #{no}, #{gender}, #{degree}, #{clazzId}, #{idCard}, #{isCollege}, #{address}, #{phone}, now(), now(), #{graduationDate}, #{violationCount}, #{violationScore})-->
 <!--    </insert>-->

@@ -5,6 +5,7 @@ import com.albert.pojo.PageResult;
 import com.albert.pojo.Student;
 import com.albert.pojo.StudentQueryParam;
 import com.albert.service.StudentService;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.page.PageParams;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ public class StudentServiceImpl implements StudentService {
         PageHelper.startPage(params.getPage(), params.getPageSize());
 
         List<Student> studentList = studentMapper.list(params.getName(), params.getDegree(), params.getClazzId());
-        return new PageResult<>((long) studentList.size(), studentList);
+        Page<Student> p = (Page<Student>) studentList;
+        return new PageResult<>(p.getTotal(), p.getResult());
     }
 
     @Override
@@ -32,5 +34,10 @@ public class StudentServiceImpl implements StudentService {
         student.setCreateTime(LocalDateTime.now());
         student.setUpdateTime(LocalDateTime.now());
         studentMapper.add(student);
+    }
+
+    @Override
+    public void deleteByIds(List<Integer> ids) {
+        studentMapper.deleteByIds(ids);
     }
 }

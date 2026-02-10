@@ -34,4 +34,11 @@ public class StudentController {
         return Result.success();
     }
 
+    @DeleteMapping("/{ids}")
+    public Result delete(@PathVariable List<Integer> ids){
+        log.info("Delete student: {}", ids);
+        studentService.deleteByIds(ids);
+        return Result.success();
+    }
+
 }
