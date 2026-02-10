@@ -3,6 +3,7 @@ Tech Stack: Java17, SpringBoot3.x, maven, Session, AliCloud OSS(Aliyun), Filter,
 
 This is a personal project.
 The main function is management the departments, employees and students in the educational institutes.
+Addtional function: statistic the data of employees and students. Use jwt to identify the users.
 
 # Project Structure
 ## frontend
@@ -14,10 +15,10 @@ The main function is management the departments, employees and students in the e
 + Maven
 + MyBatis
 + Java 17
-+ Session
-+ Cookie
 + Filter
-+ JWT
++ Session for Service end
++ Cookie for Client
++ JWT  Actually use this method for logging in 
 
 ## deployment
 + Docker
