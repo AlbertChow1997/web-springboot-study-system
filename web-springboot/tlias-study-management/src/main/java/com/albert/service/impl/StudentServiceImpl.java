@@ -40,4 +40,15 @@ public class StudentServiceImpl implements StudentService {
     public void deleteByIds(List<Integer> ids) {
         studentMapper.deleteByIds(ids);
     }
+
+    @Override
+    public void update(Student student) {
+        student.setUpdateTime(LocalDateTime.now());
+        studentMapper.update(student);
+    }
+
+    @Override
+    public Student getInfo(Integer id) {
+        return studentMapper.getById(id);
+    }
 }
