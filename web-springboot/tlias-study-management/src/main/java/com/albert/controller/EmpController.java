@@ -81,5 +81,12 @@ public class EmpController {
         return Result.success();
     }
 
+    @GetMapping("/list")
+    public Result list(){
+        log.info("List all employees");
+        List<Emp> empList = empService.list();
+        return Result.success(empList);
+    }
+
 
 }

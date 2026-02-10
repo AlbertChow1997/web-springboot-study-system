@@ -7,6 +7,7 @@ import com.albert.service.EmpLogService;
 import com.albert.service.EmpService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 @Service
 public class EmpServiceImpl implements EmpService {
 
@@ -120,6 +122,23 @@ public class EmpServiceImpl implements EmpService {
         if(!CollectionUtils.isEmpty(exprList)){
             exprList.forEach(empExpr -> empExpr.setEmpId(emp.getId()));
             empExprMapper.insertBatch(exprList);
+        }
+
+    }
+
+    @Override
+    public List<Emp> list() {
+        return empMapper.findAll();
+    }
+
+    @Override
+    public LoginInfo login(Emp emp) {
+        Emp e = empMapper.selectByUsernameAndPassword(emp);
+        if(e != null){
+            log.info("Login successful: {}", e);
+            return new LoginInfo(e.getId(), e.getUsername(), e.getName(), "");
+        }else{
+            return null;
         }
 
     }

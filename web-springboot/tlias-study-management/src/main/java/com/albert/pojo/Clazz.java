@@ -28,11 +28,11 @@ public class Clazz {
     /**
      * ID，ID
      */
-    private Long id;
+    private Integer id;
     /**
      * 班主任id，班主任id, 关联员工表id
      */
-    private Long masterId;
+    private Integer masterId;
     /**
      * 班级名称，班级
      */
@@ -44,7 +44,7 @@ public class Clazz {
     /**
      * 学科，1:java, 2:前端, 3:大数据, 4:Python, 5:Go, 6:嵌入式
      */
-    private Long subject;
+    private Integer subject;
     /**
      * 修改时间，修改时间
      */

@@ -2,6 +2,7 @@ package com.albert.service;
 
 import com.albert.pojo.Emp;
 import com.albert.pojo.EmpQueryParam;
+import com.albert.pojo.LoginInfo;
 import com.albert.pojo.PageResult;
 
 import java.util.List;
@@ -22,4 +23,8 @@ public interface EmpService {
     Emp getInfo(Integer id);
 
     void update(Emp emp);
+
+    List<Emp> list();
+
+    LoginInfo login(Emp emp);
 }

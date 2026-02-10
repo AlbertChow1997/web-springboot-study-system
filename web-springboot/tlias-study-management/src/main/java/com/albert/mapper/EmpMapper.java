@@ -40,6 +40,12 @@ public interface EmpMapper {
 
     Integer countByDeptId(Integer id);
 
+    @Select("select id, username, password, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time from emp")
+    List<Emp> findAll();
+
+    @Select("select id, username, name from emp where username = #{username} and password = #{password}")
+    Emp selectByUsernameAndPassword(Emp emp);
+
 
     //PageResult page(Integer page, Integer pageSize);
 }
