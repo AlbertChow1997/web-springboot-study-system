@@ -5,6 +5,7 @@ import com.albert.mapper.EmpMapper;
 import com.albert.pojo.*;
 import com.albert.service.EmpLogService;
 import com.albert.service.EmpService;
+import com.albert.utils.JwtUtils;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +16,9 @@ import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -136,7 +139,12 @@ public class EmpServiceImpl implements EmpService {
         Emp e = empMapper.selectByUsernameAndPassword(emp);
         if(e != null){
             log.info("Login successful: {}", e);
-            return new LoginInfo(e.getId(), e.getUsername(), e.getName(), "");
+            //create token
+            Map<String, Object> claims = new HashMap<>();
+            claims.put("id", e.getId());
+            claims.put("username", e.getUsername());
+            String jwt = JwtUtils.generateToken(claims);
+            return new LoginInfo(e.getId(), e.getUsername(), e.getName(), jwt);
         }else{
             return null;
         }
