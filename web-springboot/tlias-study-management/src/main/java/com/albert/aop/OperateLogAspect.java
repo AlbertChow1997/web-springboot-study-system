@@ -1,6 +1,7 @@
 package com.albert.aop;
 
 
+import com.albert.utils.CurrentHolder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.albert.mapper.OperateLogMapper;
@@ -129,7 +130,7 @@ public class OperateLogAspect {
         // return u.getId();
 
         // 这里先给一个兜底，避免 NPE
-        return null;
+        return CurrentHolder.getCurrentId();
     }
 
     private String safeToJson(Object obj) {
